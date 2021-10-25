@@ -46,7 +46,7 @@ const AuthProvider = (props) => {
       payload: userData,
     });
   };
-  const logOut = () => {
+  const logout = () => {
     localStorage.removeItem("jwtToken");
     dispatch({
       type: "LOGOUT",
@@ -55,7 +55,7 @@ const AuthProvider = (props) => {
 
   return (
     <AuthContext.Provider
-      value={{ user: state.user, login, logOut }}
+      value={{ user: state.user, login, logout }}
       {...props}
     />
   );
