@@ -4,7 +4,7 @@ const mongoose =require('mongoose')
 
 const typeDefs = require('./graphQL/typeDefs')
 const resolvers = require('./graphQL/resolvers')
-const { MONGODB } = require('./config')
+const { MONGODB } = require('./config.js')
 
 const pubsub = new PubSub()
 const server = new ApolloServer({
@@ -13,7 +13,7 @@ const server = new ApolloServer({
     context: ({req}) => ({ req, pubsub })
 })
 
-const PORT = process.env.port || 5000
+const PORT = process.env.PORT || 5000
 
 mongoose.connect(MONGODB, {useNewUrlParser: true})
 .then(() => {
